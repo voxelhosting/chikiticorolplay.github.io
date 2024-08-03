@@ -32,6 +32,7 @@
             max-width: 80%;
             width: 90%;
             backdrop-filter: blur(5px);
+            animation: slideIn 1s ease-out;
         }
 
         h1 {
@@ -39,7 +40,7 @@
             margin-bottom: 1rem;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
             font-size: 2rem;
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .image-container {
@@ -50,15 +51,18 @@
         }
 
         img {
-            max-width: 60%; /* Ajustar tamaño de imagen */
+            max-width: 60%; /* Adjust image size */
             height: auto;
             border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: none;
+            transition: transform 0.5s, box-shadow 0.5s;
+            opacity: 0;
+            transform: scale(0.95);
         }
 
         img.active {
-            display: block;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 1s, transform 1s;
         }
 
         img:hover {
@@ -123,6 +127,17 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -170,17 +185,17 @@
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 100,
+                    "value": 150, // Increased number of particles
                     "density": {
                         "enable": true,
-                        "value_area": 800
+                        "value_area": 1000
                     }
                 },
                 "color": {
-                    "value": ["#ffffff", "#7289da", "#99aab5"]
+                    "value": ["#ffffff", "#7289da", "#99aab5", "#ff5555"]
                 },
                 "shape": {
-                    "type": ["circle", "triangle", "polygon"],
+                    "type": ["circle", "triangle", "polygon", "star"],
                     "stroke": {
                         "width": 0,
                         "color": "#000000"
@@ -190,31 +205,35 @@
                     }
                 },
                 "opacity": {
-                    "value": 0.7,
+                    "value": 0.8,
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 0.5,
+                        "speed": 0.8,
                         "opacity_min": 0.2,
                         "sync": false
                     }
                 },
                 "size": {
-                    "value": 3,
+                    "value": 4,
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 5,
-                        "size_min": 0.1,
+                        "speed": 6,
+                        "size_min": 0.2,
                         "sync": false
                     }
                 },
                 "line_linked": {
-                    "enable": false
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#99aab5",
+                    "opacity": 0.4,
+                    "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 2,
+                    "speed": 3,
                     "direction": "none",
                     "random": true,
                     "straight": false,
@@ -249,10 +268,10 @@
                     },
                     "bubble": {
                         "distance": 250,
-                        "size": 6,
+                        "size": 8,
                         "duration": 2,
-                        "opacity": 0.7,
-                        "speed": 2
+                        "opacity": 0.8,
+                        "speed": 3
                     },
                     "repulse": {
                         "distance": 300,
