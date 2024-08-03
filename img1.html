@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Mantenimiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c2f33;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #23272a;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            margin-bottom: 20px;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .maintenance-message {
+            background-color: #36393f;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            color: #7289da;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #dcdcdc;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #7289da;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        a:hover {
+            color: #99aab5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <header>
+        <h1>Información de Discord</h1>
+        <a href="index.html" class="nav-link">Volver a Inicio</a>
+    </header>
+
+    <main>
+        <div class="maintenance-message">
+            <h1>En Mantenimiento</h1>
+            <p>La página a la que intentas acceder está en mantenimiento. Por favor, vuelve más tarde.</p>
+        </div>
+    </main>
+
+    <!-- Include particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Particles.js configuration -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 200, // Increase number of particles
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000 // Adjust area density
+                    }
+                },
+                "color": {
+                    "value": ["#ffffff", "#7289da", "#99aab5"]
+                },
+                "shape": {
+                    "type": ["circle", "triangle", "polygon", "edge"], // Add more shapes
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 6
+                    }
+                },
+                "opacity": {
+                    "value": 0.9, // Increase opacity
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "opacity_min": 0.5,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 7, // Increase particle size
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 15,
+                        "size_min": 1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 100, // Reduce distance to make lines denser
+                    "color": "#ffffff",
+                    "opacity": 0.5,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 5, // Increase movement speed
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": ["grab", "bubble"]
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 250,
+                        "size": 15,
+                        "duration": 2,
+                        "opacity": 0.9,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 300,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 6 // Increase number of particles pushed
+                    },
+                    "remove": {
+                        "particles_nb": 4 // Increase number of particles removed
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

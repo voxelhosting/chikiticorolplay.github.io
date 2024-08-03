@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos de Chikiticorolplay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c2f33;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            background-color: rgba(54, 57, 63, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            width: 90%;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #7289da;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            font-size: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            max-width: 60%; /* Ajustar tamaño de imagen */
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: none;
+        }
+
+        img.active {
+            display: block;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #7289da;
+            cursor: pointer;
+            transition: color 0.3s;
+            user-select: none;
+            z-index: 20;
+        }
+
+        .arrow:hover {
+            color: #99aab5;
+        }
+
+        .arrow-left {
+            left: -50px;
+        }
+
+        .arrow-right {
+            right: -50px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #7289da;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link:hover {
+            background-color: #99aab5;
+            transform: translateY(-3px);
+        }
+
+        /* Particles container */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Ensure it's behind all content */
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <h1>Fotos de Chikiticorolplay</h1>
+        <div class="image-container">
+            <span class="arrow arrow-left" onclick="prevImage()">&larr;</span>
+            <img src="https://media.discordapp.net/attachments/1246505961405812858/1269323608753176626/118FCA81-BA3C-46BB-96FB-7E5EFDB35AB2.jpg?ex=66afa53b&is=66ae53bb&hm=b55e51e69cf9ca892615aae7236460bc618557b7f503593706eaab2a445a03cd&=&format=webp&width=1177&height=662" class="active" alt="Foto 1">
+            <img src="https://media.discordapp.net/attachments/1246505961405812858/1269333373772632186/cooltext463265239306419_1.png?ex=66afae53&is=66ae5cd3&hm=75ef20c3595b74dabd19ab8c288dc5d043f9328be09bd9f99ebc5d25504fe4be&=&format=webp&quality=lossless&width=1187&height=166" alt="Foto 2">
+            <img src="https://media.discordapp.net/attachments/1246505961405812858/1269333565972414606/Screenshot_20240724-235141.jpg?ex=66afae81&is=66ae5d01&hm=3af7612c1ad5e40d3b3f0b0bdb67887d4f67e3a81098eda861e9f8097aad6f13&=&format=webp&width=822&height=662" alt="Foto 3">
+            <img src="https://media.discordapp.net/attachments/1246505961405812858/1269333905668837518/image-4.png?ex=66afaed2&is=66ae5d52&hm=3bc75bcd7f830d99862c159e67a20cc7da2cca35dcc7a6a26eedfb16b7ec1619&=&format=webp&quality=lossless&width=1280&height=226" alt="Foto 4">
+            <img src="https://media.discordapp.net/attachments/1246505961405812858/1269333992214233178/Screenshot_20240311-1901002.png?ex=66afaee6&is=66ae5d66&hm=98ca971f28863364683e9eae5e6f3d5ce6defe607a52b55a8ae4da737fa40e01&=&format=webp&quality=lossless&width=878&height=662" alt="Foto 5">
+            <span class="arrow arrow-right" onclick="nextImage()">&rarr;</span>
+        </div>
+        <a href="index.html" class="back-link">Volver a la Información</a>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.image-container img');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        }
+
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#ffffff", "#7289da", "#99aab5"]
+                },
+                "shape": {
+                    "type": ["circle", "triangle", "polygon"],
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 0.5,
+                        "opacity_min": 0.2,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 5,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "bubble"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 250,
+                        "size": 6,
+                        "duration": 2,
+                        "opacity": 0.7,
+                        "speed": 2
+                    },
+                    "repulse": {
+                        "distance": 300,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    <!-- Include particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</body>
+</html>
